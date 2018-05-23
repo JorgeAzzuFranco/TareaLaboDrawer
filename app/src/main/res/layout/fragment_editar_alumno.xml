@@ -1,9 +1,123 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jorge.Fragmentos.EditarAlumnoFragment">
+    tools:context="com.jorge.Fragmentos.EditarAlumnoFragment"
+    android:layout_margin="8dp"
+    android:gravity="center">
 
 
+    <LinearLayout
+        android:id="@+id/carnet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/txtCarnet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/carnet"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editCarnet"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/txtCarnet"
+            android:digits="1234567890"
+            android:textSize="20sp"
+            android:layout_marginLeft="8dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            android:layout_toRightOf="@+id/editCarnet"
+            android:layout_marginLeft="8dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/carnet"
+        android:layout_marginTop="8dp"
+        android:layout_alignStart="@+id/carnet"
+        android:layout_alignLeft="@+id/carnet">
+
+        <TextView
+            android:id="@+id/txtNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_marginLeft="8dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nombre"
+        android:layout_marginTop="8dp"
+        android:layout_alignStart="@+id/nombre"
+        android:layout_alignLeft="@+id/nombre">
+
+        <TextView
+            android:id="@+id/txtNota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nota"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:inputType="numberDecimal"
+            android:digits="1234567890."
+            android:maxLength="4"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/nom"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btnGuardarMod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guardar"/>
+
+        <Button
+            android:id="@+id/btnActualizarMod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/actualizar"/>
+
+        <Button
+            android:id="@+id/btnEliminarMod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eliminar"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
