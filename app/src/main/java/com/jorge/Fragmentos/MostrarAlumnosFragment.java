@@ -1,6 +1,7 @@
 package com.jorge.Fragmentos;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -27,4 +28,7 @@ public class MostrarAlumnosFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_mostrar_alumnos, container, false);
     }
 
+    public interface OnFragmentInteractionListener {
+        void onFragmentInteraction(Uri uri);
+    }
 }

@@ -1,5 +1,6 @@
 package com.jorge;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,8 +15,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.jorge.Entidades.DBHelper;
+import com.jorge.Fragmentos.*;
+import com.jorge.Datos.Alumno;
+
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        AddAlumnoFragment.OnFragmentInteractionListener,
+        EditarAlumnoFragment.OnFragmentInteractionListener,
+        MostrarAlumnosFragment.OnFragmentInteractionListener{
 
     Fragment miFragment;
 
@@ -23,6 +31,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DBHelper.getInstance(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -85,17 +96,14 @@ public class MainActivity extends AppCompatActivity
         boolean seleccionado = false;
 
         if (id == R.id.nav_camera) {
-
+            miFragment = new AddAlumnoFragment();
+            seleccionado = true;
         } else if (id == R.id.nav_gallery) {
-
+            miFragment = new EditarAlumnoFragment();
+            seleccionado = true;
         } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            miFragment = new MostrarAlumnosFragment();
+            seleccionado = true;
         }
 
         if(seleccionado){
@@ -105,5 +113,10 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
