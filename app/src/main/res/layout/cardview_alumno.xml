@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    android:background="@color/colorAccent">
+
+    <TextView
+        android:id="@+id/carn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/carnet"
+        android:textColor="#000"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/txtcarn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Sample"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_toRightOf="@+id/carn"
+        android:layout_marginLeft="4dp"/>
+
+    <TextView
+        android:id="@+id/nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nombre"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_below="@+id/carn"/>
+
+    <TextView
+        android:id="@+id/txtnom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Sample"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_toRightOf="@+id/nom"
+        android:layout_below="@+id/carn"
+        android:layout_marginLeft="4dp" />
+
+    <TextView
+        android:id="@+id/not"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nota"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_below="@+id/nom"/>
+
+    <TextView
+        android:id="@+id/txtnot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Sample"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_toRightOf="@+id/not"
+        android:layout_below="@+id/nom"
+        android:layout_marginLeft="4dp" />
+
+</RelativeLayout>

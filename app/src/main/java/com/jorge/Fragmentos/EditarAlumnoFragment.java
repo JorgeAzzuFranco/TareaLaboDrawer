@@ -22,7 +22,7 @@ public class EditarAlumnoFragment extends Fragment {
 
     View editAlumnos;
     EditText editCarnet, editNombre, editNota;
-    Button guardar, actualizar, eliminar, buscar;
+    Button btnLimpiar, actualizar, eliminar, buscar;
 
     public EditarAlumnoFragment() {
         // Required empty public constructor
@@ -54,26 +54,27 @@ public class EditarAlumnoFragment extends Fragment {
             }
         });
 
-        guardar.setOnClickListener(new View.OnClickListener() {
+        btnLimpiar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
+                limpiar();
             }
         });
 
         actualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                DBHelper.myDB.editUser(new Alumno(editCarnet.getText().toString(), editNombre.getText().toString(),
+                        Float.parseFloat(editNota.getText().toString())));
+                limpiar();
             }
         });
 
         eliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                DBHelper.myDB.deleteUser(editCarnet.getText().toString());
+                limpiar();
             }
         });
 
@@ -84,14 +85,13 @@ public class EditarAlumnoFragment extends Fragment {
         editCarnet.setText("");
         editNota.setText("");
         editNombre.setText("");
-
     }
 
     public void iniciarComponentes(View v){
         editCarnet = v.findViewById(R.id.editCarnetMod);
         editNombre = v.findViewById(R.id.editNombreMod);
         editNota = v.findViewById(R.id.editNotaMod);
-        guardar = v.findViewById(R.id.btnGuardarMod);
+        btnLimpiar = v.findViewById(R.id.btnLimpiarMod);
         actualizar = v.findViewById(R.id.btnActualizarMod);
         eliminar = v.findViewById(R.id.btnEliminarMod);
         buscar = v.findViewById(R.id.btnBuscar);

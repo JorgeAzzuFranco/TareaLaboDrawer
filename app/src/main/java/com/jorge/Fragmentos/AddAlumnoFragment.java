@@ -51,6 +51,7 @@ public class AddAlumnoFragment extends Fragment {
 
                     if (flag){
                         Toast.makeText(getContext(), "Alumno ingresado con exito", Toast.LENGTH_SHORT).show();
+                        limpiar();
                     }
                     else{
                         Toast.makeText(getContext(), "Error Alumno no ingresado", Toast.LENGTH_SHORT).show();
@@ -69,6 +70,10 @@ public class AddAlumnoFragment extends Fragment {
         btnGuardar = v.findViewById(R.id.btnGuardar);
     }
 
+    private void limpiar() {
+        editCarnet.setText("");
+        editNombre.setText("");
+    }
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
     }

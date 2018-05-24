@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.jorge.Datos.Alumno;
 
+import java.util.ArrayList;
+
 /**
  * Created by zero_ on 22/5/2018.
  */
@@ -20,7 +22,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String CAMPO_ID = "carnet";
     public static final String CAMPO_NOMBRE = "nombre";
     public static final String CAMPO_NOTA = "nota";
-    public static final String CREAR_TABLA_ALUMNOS = "CREATE TABLE "+ TABLA_ALUMNO + "(" +
+    public static final String CREAR_TABLA_ALUMNOS = "CREATE TABLE "+
+            TABLA_ALUMNO + "(" +
             CAMPO_ID + " TEXT," +
             CAMPO_NOMBRE + " TEXT," +
             CAMPO_NOTA + " TEXT)";
@@ -95,6 +98,19 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public ArrayList<Alumno> getAlumnos(){
+
+        Cursor cursor = db.rawQuery("SELECT * FROM "+TABLA_ALUMNO,null);
+        ArrayList<Alumno> a = new ArrayList<Alumno>();
+
+        while (cursor.moveToNext()){
+            a.add(new Alumno(cursor.getString(0),cursor.getString(1),
+                    Float.parseFloat(cursor.getString(2))));
+        }
+
+        return a;
+    }
+    
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREAR_TABLA_ALUMNOS);
